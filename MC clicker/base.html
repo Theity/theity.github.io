@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        let count = 0;
+        let power = 1;
+        let autopower = 0;
+        function clicked() {
+            count += power;
+            document.getElementById("counter").innerHTML = count;
+        }
+
+        function upgrade() {
+            if (count >= 20) {
+                count -= 20;
+                power +=1;
+                document.getElementById("counter").innerHTML = count;
+            }
+        }
+        // auto functions dont work yet
+        function autoupgrade() {
+            if (count >= 100) {
+                count -= 100;
+                autopower += 1;
+                document.getElementById("counter").innerHTML = count;
+            }
+        }
+            
+        async function autoclick() {
+            while (true) {
+                count += autopower;
+                document.getElementById("counter").innerHTML = count;
+                await sleep(1000);
+                
+            }
+        }
+    </script>
+    <head>
+        <title>MC Clicker</title>
+    </head>
+    <body>
+        <h1>Clicker</h1>
+        <div id = "counter">0</div>
+        <button onclick = "clicked()">Click</button>
+        <button onclick = "upgrade()">Upgrade</button>
+        <button onclick = "autoupgrade()">Autoclicker</button>
+        <a href="update.html">Updates</a>
+    </body>
+</html>
